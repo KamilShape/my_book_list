@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 700px;
+}
+
+.input_input {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 3px 6px;
+  border-radius: 10px 0;
+  border: 3px solid lightblue;
+}
+.input_name {
+  padding-bottom: 5px;
+  width: 80%;
+  margin: 0 auto;
+}
+.input_container {
+  width: 80%;
+  margin: 5px auto;
+  padding-top: 5px;
+}
+
+.addButton {
+  display: block;
+  margin: 10px auto 0 auto;
+  padding: 5px;
+  text-transform: uppercase;
+  border-radius: 10px 0;
+  border: none;
+  transition: 0.3s ease-in-out;
+  background-color: lightgreen;
+}
+.addButton:hover {
+  cursor: pointer;
+  border-radius: 0 10px;
+}
+
+.title {
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bookList_row {
+  display: flex;
+}
+.bookList_row:nth-of-type(1) {
+  background-color: lightblue;
+  font-weight: 700;
+}
+.bookList_col {
+  width: 33%;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}/*# sourceMappingURL=style.css.map */
