@@ -11,6 +11,23 @@ class Book {
 
     }
 }
+class InterfaceSettings {
+    static displayBooks() {
+        const StoredBooks = [{
+                    title: 'One',
+                    author: 'John Kovalsky',
+                    isbn: 525525
+                },
+                {
+                    title: 'Two',
+                    author: 'Mark Smith',
+                    isbn: 525530
+                }
+            ]
+            // StoredBooks.
+    }
+
+}
 const addBook = function() {
     console.log(titleInput.value, authorInput.value, isbnInput.value)
 }
