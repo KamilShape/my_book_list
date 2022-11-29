@@ -14,19 +14,28 @@ class Book {
 class InterfaceSettings {
     static displayBooks() {
         const StoredBooks = [{
-                    title: 'One',
-                    author: 'John Kovalsky',
-                    isbn: 525525
-                },
-                {
-                    title: 'Two',
-                    author: 'Mark Smith',
-                    isbn: 525530
-                }
-            ]
-            // StoredBooks.
+                title: 'One',
+                author: 'John Kovalsky',
+                isbn: 525525
+            },
+            {
+                title: 'Two',
+                author: 'Mark Smith',
+                isbn: 525530
+            }
+        ]
+        StoredBooks.forEach(book => console.log(book))
     }
-
+    addBookToList(book) {
+        const list = document.querySelector('.bookList')
+        const row = document.createElement('div')
+        const col = document.createElement('p')
+        row.classList.add('bookList_row')
+        row.innerHTML = `
+            <p class="bookList_col">${book.title}</p>
+            <p class="bookList_col">${book.author}</p>
+            <p class="bookList_col">${book.isbn}</p>`
+    }
 }
 const addBook = function() {
     console.log(titleInput.value, authorInput.value, isbnInput.value)
