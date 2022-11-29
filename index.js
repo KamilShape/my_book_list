@@ -1,8 +1,3 @@
-const titleInput = document.querySelector('.title_input')
-const authorInput = document.querySelector('.author_input')
-const isbnInput = document.querySelector('.isbn_input')
-const addButton = document.querySelector('.addButton')
-
 class Book {
     constructor(title, author, isbn) {
         this.title = title;
@@ -24,21 +19,28 @@ class InterfaceSettings {
                 isbn: 525530
             }
         ]
-        StoredBooks.forEach(book => console.log(book))
+        const books = StoredBooks
+        books.forEach(book => InterfaceSettings.addBookToList(book))
     }
-    addBookToList(book) {
+    static addBookToList(book) {
         const list = document.querySelector('.bookList')
         const row = document.createElement('div')
-        const col = document.createElement('p')
         row.classList.add('bookList_row')
         row.innerHTML = `
             <p class="bookList_col">${book.title}</p>
             <p class="bookList_col">${book.author}</p>
             <p class="bookList_col">${book.isbn}</p>`
+        list.appendChild(row)
     }
 }
-const addBook = function() {
-    console.log(titleInput.value, authorInput.value, isbnInput.value)
-}
 
-addButton.addEventListener('click', addBook)
+const titleInput = document.querySelector('.title_input')
+const authorInput = document.querySelector('.author_input')
+const isbnInput = document.querySelector('.isbn_input')
+const addButton = document.querySelector('.addButton')
+
+addButton.addEventListener('click', () => {
+    let book = new Book(titleInput.value, authorInput.value, isbnInput.value)
+    InterfaceSettings.addBookToList(book)
+})
+document.addEventListener('DOMContentLoaded', InterfaceSettings.displayBooks)
