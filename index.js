@@ -1,3 +1,8 @@
+const titleInput = document.querySelector('.title_input')
+const authorInput = document.querySelector('.author_input')
+const isbnInput = document.querySelector('.isbn_input')
+const addButton = document.querySelector('.addButton')
+
 class Book {
     constructor(title, author, isbn) {
         this.title = title;
@@ -6,6 +11,7 @@ class Book {
 
     }
 }
+
 class InterfaceSettings {
     static displayBooks() {
         const StoredBooks = [{
@@ -32,15 +38,17 @@ class InterfaceSettings {
             <p class="bookList_col">${book.isbn}</p>`
         list.appendChild(row)
     }
+    static clearFields(field1, field2, field3) {
+        titleInput.value = ''
+        authorInput.value = ''
+        isbnInput.value = ''
+    }
 }
-
-const titleInput = document.querySelector('.title_input')
-const authorInput = document.querySelector('.author_input')
-const isbnInput = document.querySelector('.isbn_input')
-const addButton = document.querySelector('.addButton')
 
 addButton.addEventListener('click', () => {
     let book = new Book(titleInput.value, authorInput.value, isbnInput.value)
     InterfaceSettings.addBookToList(book)
+    InterfaceSettings.clearFields()
+
 })
 document.addEventListener('DOMContentLoaded', InterfaceSettings.displayBooks)
