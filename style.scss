@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 section {
@@ -10,23 +11,22 @@ section {
     max-width: 700px;
 }
 
+.width-settings {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .input {
     &_input {
         display: block;
-        width: 80%;
-        margin: 0 auto;
         padding: 3px 6px;
         border-radius: 10px 0;
-        border: 3px solid lightblue;
+        border: 1px solid lightblue;
     }
     &_name {
         padding-bottom: 5px;
-        width: 80%;
-        margin: 0 auto;
     }
     &_container {
-        width: 80%;
-        margin: 5px auto;
         padding-top: 5px;
     }
 }
@@ -36,10 +36,11 @@ section {
     margin: 10px auto 0 auto;
     padding: 5px;
     text-transform: uppercase;
+    font-weight: bold;
     border-radius: 10px 0;
     border: none;
     transition: 0.3s ease-in-out;
-    background-color: lightgreen;
+    background-color: lightblue;
     &:hover {
         cursor: pointer;
         border-radius: 0 10px;
