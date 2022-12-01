@@ -3,6 +3,7 @@ const authorInput = document.querySelector('.author_input')
 const isbnInput = document.querySelector('.isbn_input')
 const addButton = document.querySelector('.addButton')
 
+
 class Book {
     constructor(title, author, isbn) {
         this.title = title;
@@ -37,12 +38,16 @@ class InterfaceSettings {
         row.innerHTML = `
                 <p class="bookList_col">${book.title}</p>
                 <p class="bookList_col">${book.author}</p>
-                <p class="bookList_col">${book.isbn}</p>`
+                <p class="bookList_col">${book.isbn} <button class="delete_button">X</button></p>`
         list.appendChild(row)
         titleInput.value = '',
             authorInput.value = '',
             isbnInput.value = ''
     }
+    static removeBook(arg) {
+        arg.parentElement.parentElement.remove()
+    }
+
 }
 
 addButton.addEventListener('click', () => {
@@ -51,6 +56,12 @@ addButton.addEventListener('click', () => {
         InterfaceSettings.addBookToList(book)
     } else {
         alert('Please fill all inputs!')
+    }
+})
+
+document.querySelector('.bookList').addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete_button')) {
+        InterfaceSettings.removeBook(e.target)
     }
 })
 document.addEventListener('DOMContentLoaded', InterfaceSettings.displayBooks)
