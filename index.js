@@ -7,8 +7,7 @@ class Book {
     constructor(title, author, isbn) {
         this.title = title;
         this.author = author;
-        this.isbn = isbn
-
+        this.isbn = isbn;
     }
 }
 
@@ -26,29 +25,32 @@ class InterfaceSettings {
             }
         ]
         const books = StoredBooks
-        books.forEach(book => InterfaceSettings.addBookToList(book))
+        books.forEach(book => {
+            InterfaceSettings.addBookToList(book)
+        })
+
     }
     static addBookToList(book) {
         const list = document.querySelector('.bookList')
         const row = document.createElement('div')
         row.classList.add('bookList_row')
         row.innerHTML = `
-            <p class="bookList_col">${book.title}</p>
-            <p class="bookList_col">${book.author}</p>
-            <p class="bookList_col">${book.isbn}</p>`
+                <p class="bookList_col">${book.title}</p>
+                <p class="bookList_col">${book.author}</p>
+                <p class="bookList_col">${book.isbn}</p>`
         list.appendChild(row)
-    }
-    static clearFields(field1, field2, field3) {
-        titleInput.value = ''
-        authorInput.value = ''
-        isbnInput.value = ''
+        titleInput.value = '',
+            authorInput.value = '',
+            isbnInput.value = ''
     }
 }
 
 addButton.addEventListener('click', () => {
     let book = new Book(titleInput.value, authorInput.value, isbnInput.value)
-    InterfaceSettings.addBookToList(book)
-    InterfaceSettings.clearFields()
-
+    if (titleInput.value != '' && authorInput.value != '' && isbnInput.value != '') {
+        InterfaceSettings.addBookToList(book)
+    } else {
+        alert('Please fill all inputs!')
+    }
 })
 document.addEventListener('DOMContentLoaded', InterfaceSettings.displayBooks)
