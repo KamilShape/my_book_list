@@ -16,6 +16,12 @@ section {
     margin: 0 auto;
 }
 
+button {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 .input {
     &_input {
         display: block;
@@ -63,9 +69,23 @@ section {
         }
     }
     &_col {
+        display: flex;
+        justify-content: center;
         width: 33%;
         padding: 5px;
         text-align: center;
         text-transform: uppercase;
     }
+}
+
+.delete_button {
+    width: 15px;
+    height: 15px;
+    margin: auto 5px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 100%;
+    background-color: rgb(255, 204, 203);
+    border-radius: 50%;
+    border: none;
 }
